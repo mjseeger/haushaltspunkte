@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Nur diese zwei E-Mail-Adressen dürfen die Daten lesen und ändern.
+    // Trage hier eure beiden Adressen ein (klein geschrieben).
+    function erlaubt() {
+      return request.auth != null
+        && request.auth.token.email in ['person1@example.com', 'person2@example.com'];
+    }
+    match /{document=**} {
+      allow read, write: if erlaubt();
+    }
+  }
+}

@@ -1,0 +1,19 @@
+HAUSHALTSPUNKTE – Kurzanleitung
+================================
+
+1) Firebase-Projekt: firebase.google.com → "Projekt erstellen"
+2) Authentication → "Jetzt starten" → Anbieter "E-Mail/Passwort" aktivieren
+3) Firestore Database → "Datenbank erstellen" → Standort europe-west3 (Frankfurt) → Produktionsmodus
+4) Projekteinstellungen (Zahnrad) → Web-App hinzufügen (</>) → Konfiguration kopieren
+5) Die drei Dateien ausfüllen (oder Claude macht das für dich):
+   - public/config.js   → firebaseConfig einfügen
+   - .firebaserc        → Projekt-ID eintragen
+   - firestore.rules    → eure zwei E-Mail-Adressen eintragen
+6) Am Computer: Node.js installieren (nodejs.org, "LTS"), dann im Terminal in diesem Ordner:
+      npm install -g firebase-tools
+      firebase login
+      firebase deploy
+7) Die angezeigte Adresse (…web.app) auf beiden Handys öffnen,
+   Konto erstellen, "Zum Home-Bildschirm" hinzufügen.
+
+Spätere Änderungen: neue Dateien hier ablegen und erneut "firebase deploy".
